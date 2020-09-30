@@ -9,7 +9,8 @@ In this case, the _Bionic Beaver (18.04;LTS)_ release.
 
 ```bash
 sudo touch /etc/apt/sources.list.d/R-sources.list
-echo -e "\n## R sources for Bionic Beaver (18.04;LTS) \ndeb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/" | sudo tee -a /etc/apt/sources.list.d/R-sources.list
+echo -e "\n## R sources for Bionic Beaver (18.04;LTS) \ndeb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/" \
+| sudo tee -a /etc/apt/sources.list.d/R-sources.list
 ```
 
 You will probably need to install the public key used to sign the __CRAN__ archives.
