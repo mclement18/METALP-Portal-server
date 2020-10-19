@@ -37,9 +37,18 @@ sudo apt-get install r-base-dev
 
 You will need to install Shiny package before installing shiny server.
 
+### Newest Version
+
+To install the latest availble version use `install.packages()` function.
+
+```bash
+sudo su - \
+-c "R -e \"install.packages('shiny', repos='https://cran.rstudio.com/')\""
+```
+
 ### Older version
 
-The current version of the portal run with `shiny_1.4`, thereby you will need to install `devtools` package to easily install the version `1.4`.
+If you need an older version of shiny, you can install it with the `devtools` package.
 
 To install `devtools`, ensure that **libcurl**, **openssl** and **libxml-2.0** are installed.
 
@@ -54,20 +63,11 @@ sudo su - \
 -c "R -e \"install.packages('devtools', repos='https://cran.rstudio.com/')\""
 ```
 
-Now, you can use `devtools::install_version()` to install `shiny_1.4`.
+Now, you can use `devtools::install_version()` to install an older version like `shiny_1.4`.
 
 ```bash
 sudo su - \
 -c "R -e \"devtools::install_version('shiny', version='1.4', repos='https://cran.rstudio.com/')\""
-```
-
-### Newest Version
-
-Otherwise you can go ahead and install the latest availbel version directly using the `install.packages()` function.
-
-```bash
-sudo su - \
--c "R -e \"install.packages('shiny', repos='https://cran.rstudio.com/')\""
 ```
 
 ## Shiny Server installation
