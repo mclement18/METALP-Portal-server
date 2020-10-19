@@ -39,6 +39,8 @@ For the METALP Data Portal the following dependencies are needed:
 - Node.js (tested version: 14.9.0)
 - Terser.js (tested version: 5.3.0)
 - Cairo graphic library
+- `libsodium-dev` for the R `sodium` package
+- MySQL client to connect to remote DB and install R `RMySQL` package
 
 #### Node installation
 
@@ -73,6 +75,20 @@ sudo apt-get install libcairo2-dev
 And other dependencies for R `Cairo` package installation.
 ```bash
 sudo apt-get install libgtk2.0-dev xvfb xauth xfonts-base libxt-dev
+```
+
+#### Dependencies for Sodium package
+
+Dependency needed for the R `sodium` package.
+```bash
+sudo apt-get install libsodium-dev
+```
+
+#### MySQL client
+
+Install MySQL client to connect to a remote DB and install the R `RMySQL` package.
+```bash
+sudo apt-get install mysql-client libmysqlclient-dev
 ```
 
 ### R Packages
