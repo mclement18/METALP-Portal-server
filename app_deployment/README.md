@@ -84,11 +84,33 @@ Dependency needed for the R `sodium` package.
 sudo apt-get install libsodium-dev
 ```
 
-#### MySQL client
+#### MySQL client and Workbench
 
 Install MySQL client to connect to a remote DB and install the R `RMySQL` package.
 ```bash
 sudo apt-get install mysql-client libmysqlclient-dev
+```
+
+
+##### (Optional) MySQL Workbench
+
+Install MySQL Workbench to easily interact with the database via GUI.
+
+First configure the MySQL APT repository. In the selection menu you only need to enable the tools and connectors to download Workbench.
+```bash
+# Get the configuration wizard
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb
+# Run it and enable only the tools and connectors
+sudo dpkg -i mysql-apt-config_0.8.15-1_all.deb
+# Remove deb file
+rm mysql-apt-config_0.8.15-1_all.deb
+# Update packages information
+sudo apt-get update
+```
+
+Install MySQL Workbench and dependencies.
+```bash
+sudo apt-get install mysql-workbench-community dbus-x11 gnome-keyring
 ```
 
 ### R Packages
@@ -103,17 +125,18 @@ sudo su - \
 ## Add data
 
 For the app to be functional, send the data to the app `data` folder. If not present, create it.
-From your local computer.
+
 In the following exemple, a local data folder is being copied to the app directory on the server.
 ```bash
+# From your local computer
 rsync -r data metalp_portal@<HOST>:~/app/
 ```
 
 ## Restart the App
 
 To make sure that your changes are taken in account, restart the app.
-In the app directory and logged as the app user.
 ```bash
+# In the app directory and logged as the app user.
 touch restart.txt
 ```
 
