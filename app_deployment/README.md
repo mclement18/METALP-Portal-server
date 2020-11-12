@@ -132,6 +132,47 @@ In the following exemple, a local data folder is being copied to the app directo
 rsync -r data metalp_portal@<HOST>:~/app/
 ```
 
+## Compile assets
+
+You need to manually compile the assets using the `assets_compilation.R`.
+
+Do it in the app directory as the app user.
+```bash
+R -f assets_compilation.R
+```
+
+## Create or update secret.R file
+
+The app use several global values that are not tracked in the version control.
+
+You will have to create the `secret.R` in the app directory and it should contain the following variables:
+```r
+# Environment
+ENV <- 'production'
+
+# DB credentials
+MY_DB_NAME <- 'db_name'
+MY_DB_HOST <- 'host_address'
+MY_DB_PORT <- 3306
+MY_DB_USER <- 'username'
+MY_DB_PWD <- 'password'
+```
+
+## Create a .my.cnf file in the app user directory
+
+To use the DB backup functionality of the app, you need to create a `.my.cnf` file in the app user `home` directory.
+
+This file is used to set the username, password, host and port value for the connection to the DB using the ternimal client commands, such as `mysqldump`.
+
+In the `.my.cnf` (replace the `<values>` with your actual settings):
+```
+[client]
+user=<username>
+password=<password>
+host=<host>
+port=<port>
+```
+
 ## Restart the App
 
 To make sure that your changes are taken in account, restart the app.
